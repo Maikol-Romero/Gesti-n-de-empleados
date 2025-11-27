@@ -49,8 +49,11 @@ Esta entrega (`OPT\_PHP`) corresponde a la \*\*Fase 1\*\*, donde se implementa l
 proyecto-empleados/
 
 ├── public/
+  ├── css/
 
-│   ├── index.php       # Controlador frontal y Vista principal
+│   ├── estilos.css       # "Base de Datos" simulada (Arrays multidimensionales)
+
+│ ├── index.php       # Controlador frontal y Vista principal
 
 ├── src/
 
