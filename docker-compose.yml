@@ -1,0 +1,9 @@
+services:
+  app-empleados:
+    build: .
+    container_name: contenedor-maikol-cloud
+    restart: always
+    ports:
+      - "80:80"  # En AWS usamos el puerto 80 directo
+    volumes:
+      - .:/var/www/html
