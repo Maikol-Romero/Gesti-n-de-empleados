@@ -1,0 +1,185 @@
+/* public/css/estilos.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* --- PALETA LUXURY (ORO Y METAL) --- */
+    --primary: #D4AF37;         /* Oro Metálico */
+    --primary-dark: #B4922B;    /* Oro oscuro para hover */
+    --text-main: #333333;       /* Gris oscuro casi negro */
+    --text-muted: #666666;      /* Gris medio */
+    
+    /* --- Variables del Cristal --- */
+    --glass-bg: rgba(255, 255, 255, 0.85); /* Un poco más opaco para legibilidad */
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra más dramática */
+    --blur-amount: 15px;
+    
+    --input-bg: rgba(240, 240, 240, 0.6); 
+    --radius: 12px; /* Bordes elegantes, no exageradamente redondos */
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    
+    /* --- FONDO METÁLICO Y ORO --- */
+    /* Degradado diagonal: Gris Acero arriba izquierda -> Oro abajo derecha */
+    background: linear-gradient(135deg, #485563 0%, #29323c 50%, #D4AF37 100%);
+    background-attachment: fixed;
+    color: var(--text-main);
+}
+
+/* --- La Tarjeta Principal --- */
+.main-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 20px;
+    
+    /* Hacemos la tarjeta más estrecha para acentuar la verticalidad */
+    max-width: 550px; 
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    
+    /* Detalle dorado en el borde superior */
+    border-top: 4px solid var(--primary);
+}
+
+.card-header {
+    padding: 2.5rem 2rem 1rem;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    color: #2c3e50; /* Gris azulado muy oscuro */
+}
+
+.card-body {
+    padding: 2rem 3rem; /* Más padding lateral para centrar visualmente */
+}
+
+/* --- Formularios --- */
+.form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    
+    /* ALINEACIÓN CENTRAL DE ETIQUETAS */
+    text-align: center; 
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    text-align: center; /* ALINEACIÓN CENTRAL DEL TEXTO ESCRITO */
+    color: var(--text-main);
+    background-color: var(--input-bg);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus, .form-select:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--primary); /* Borde dorado al escribir */
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2); /* Resplandor dorado */
+}
+
+/* --- Layout Vertical (El cambio clave) --- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0; /* Quitamos márgenes negativos */
+    justify-content: center;
+}
+
+/* FORZAMOS QUE TODO SEA UNA SOLA COLUMNA */
+.col-md-6, .col-12 {
+    width: 100%; 
+    padding: 0 0 1.2rem 0; /* Espacio vertical entre inputs */
+}
+
+/* --- Botón Oro --- */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    
+    /* Degradado Dorado */
+    background: linear-gradient(to right, #D4AF37, #C5A028);
+    border: none;
+    border-radius: 50px; /* Botón píldora */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(to right, #E5C158, #D4AF37);
+}
+
+/* --- Estilos de Error --- */
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8 !important;
+}
+.invalid-feedback {
+    text-align: center; /* Error centrado */
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+/* --- Resumen Éxito --- */
+.success-card {
+    text-align: center;
+}
+.success-card h3 { color: var(--primary-dark); }
+
+.data-list {
+    list-style: none; padding: 0; margin: 2rem 0;
+    background: rgba(255,255,255,0.5);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.data-item {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+}
+.data-item:last-child { border-bottom: none; }
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+    margin: 1.5rem 0;
+    opacity: 0.5;
+}
